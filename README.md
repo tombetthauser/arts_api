@@ -1,5 +1,5 @@
-# Open Arts API 🌐
-A general purpose visual arts API built to act as an open-ended resource for applications built to serve practicing artists, art students and the broader arts community.
+# 🌐 Open Arts API
+A general purpose visual arts API built to act as a free open-ended resource for any number of independantly developed applications geared towards serving practicing artists, art students and the broader arts community.
 
 ### Core CRUD Functionality for...
 1) Individual Artists
@@ -84,7 +84,7 @@ A general purpose visual arts API built to act as an open-ended resource for app
 
 <br/>
 
-## Artworkds to Mediums Joins Table
+## Artworks to Mediums Joins Table
 
 | Column Name         | Data Type      | Details                         |
 |---------------------|----------------|---------------------------------|
@@ -105,7 +105,32 @@ A general purpose visual arts API built to act as an open-ended resource for app
 | `created_at`        | datetime       | not null                        |
 | `author_id`         | integer        | not null, foreign key           |
 
+<br/>
 
+## Exhibition Spaces Table
+
+| Column Name         | Data Type      | Details                         |
+|---------------------|----------------|---------------------------------|
+| `id`                | integer        | not null, indexed, primary key  |
+| `name`              | string         | not null, indexed               |
+| `city`              | string         | not null, indexed               |
+| `state_province`    | string         | not null, indexed               |
+| `country`           | string         | not null, indexed               |
+| `address`           | string         | not null                        |
+| `phone`             | string         |                                 |
+| `founding_date`     | datetime       | not null                        |
+| `closing_date`      | datetime       |                                 |
+| `created_at`        | datetime       | not null                        |
+| `updated_at`        | datetime       | not null                        |
+| `author_id`         | integer        | not null, foreign key           |
+
+<br/>
+
+## Artists / Gallery Representation Joins Table
+
+## Art Events Table
+
+## Art Events / Artworks Joins Table
 
 ***
 
