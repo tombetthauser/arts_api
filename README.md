@@ -1,19 +1,23 @@
 # Open Arts API 🌐
 A general purpose visual arts API built to act as an open-ended resource for applications built to serve practicing artists, art students and the broader arts community.
 
-## Core CRUD Functionality for...
+### Core CRUD Functionality for...
 1) Individual Artists
 2) Individual Artworks
 3) Galleries / Exhibition Spaces
 4) Exhibitions / Art Shows
 
-## StudioSwipe App CRUD Functionality for...
+### StudioSwipe App CRUD Functionality for...
 1) Users
 1) Artist Matches
 2) Conversations
 3) Messages
 
+<br/><br/>
+
 # Core Schema / Database Tables
+
+<br/>
 
 ## Artists Table
 
@@ -31,6 +35,8 @@ A general purpose visual arts API built to act as an open-ended resource for app
 | `updated_at`        | datetime       | not null                        |
 | `author_id`         | integer        | not null, foreign key           |
 
+<br/>
+
 ## Degrees Table
 
 | Column Name         | Data Type      | Details                         |
@@ -46,6 +52,7 @@ A general purpose visual arts API built to act as an open-ended resource for app
 | `updated_at`        | datetime       | not null                        |
 | `author_id`         | integer        | not null, foreign key           |
 
+<br/>
 
 ## Schools Table
 
@@ -59,13 +66,46 @@ A general purpose visual arts API built to act as an open-ended resource for app
 | `updated_at`        | datetime       | not null                        |
 | `author_id`         | integer        | not null, foreign key           |
 
+<br/>
+
+## Artworks Table
+
+| Column Name         | Data Type      | Details                         |
+|---------------------|----------------|---------------------------------|
+| `id`                | integer        | not null, indexed, primary key  |
+| `title`             | string         | not null, indexed               |
+| `height_mm`         | string         | not null, indexed               |
+| `width_mm`          | datetime       | not null                        |
+| `depth_mm`          | datetime       | not null                        |
+| `length_sec`        | datetime       | not null                        |
+| `created_at`        | datetime       | not null                        |
+| `updated_at`        | datetime       | not null                        |
+| `author_id`         | integer        | not null, foreign key           |
+
+<br/>
+
+## Artworkds to Mediums Joins Table
+
+| Column Name         | Data Type      | Details                         |
+|---------------------|----------------|---------------------------------|
+| `id`                | integer        | not null, primary key           |
+| `artwork_id`        | integer        | not null, indexed, foreign key  |
+| `medium_id`         | integer        | not null, indexed, foreign key  |
+| `created_at`        | datetime       | not null                        |
+
+<br/>
+
+## Mediums Table
+
+| Column Name         | Data Type      | Details                         |
+|---------------------|----------------|---------------------------------|
+| `id`                | integer        | not null, indexed, primary key  |
+| `medium_name`       | string         | not null, indexed, unique       |
+| `medium_type`       | string         | not null, indexed, (ie: 2D)     |
+| `created_at`        | datetime       | not null                        |
+| `author_id`         | integer        | not null, foreign key           |
 
 
-
-• index on  `id, unique: true` <br/>
-• index on  `username, unique: true` <br/>
-• index on  `email, unique: true` <br/>
-• index on  `session_token, unique: true` <br/>
 
 ***
 
