@@ -17,15 +17,6 @@ A general purpose visual arts API built to act as an open-ended resource for app
 
 ## Artists Table
 
-| Column Name  | Data Type  | Required  | Indexed  |   |
-|---|---|---|---|---|
-| First Name  | String  | required  | indexed  |   |
-| Middle Name  | String  | optional  | not indexed  |   |
-| Last Name  | String  | required  | indexed  |   |
-
-
-## Artists Table
-
 | Column Name         | Data Type      | Details                         |
 |---------------------|----------------|---------------------------------|
 | `id`                | integer        | not null, indexed, primary key  |
@@ -35,32 +26,40 @@ A general purpose visual arts API built to act as an open-ended resource for app
 | `birth_date`        | datetime       | not null, indexed               |
 | `death_date`        | datetime       |                                 |
 | `birth_city`        | string         | not null, indexed               |
-| `images_of_artist`  | association    | should handle through AWS       |
-| `BFA_year`          | integer        | indexed                         |
-| `MFA_year`          | integer        | indexed                         |
-| `BFA_school_id`     | integer        | indexed, validate via schools table  |
-| `MFA_school_id`     | integer        | indexed, validate via schools table  |
-| `BFA_concentration` | string         | indexed                         |
-| `MFA_concentration` | string         | indexed                         |
+| `death_city`        | string         |                                 |
 | `created_at`        | datetime       | not null                        |
 | `updated_at`        | datetime       | not null                        |
-| `author_id`         | integer        | not null                        |
+| `author_id`         | integer        | not null, foreign key           |
 
 ## Degrees Table
 
 | Column Name         | Data Type      | Details                         |
 |---------------------|----------------|---------------------------------|
 | `id`                | integer        | not null, indexed, primary key  |
-|||
-| `artist_id`         | integer        | not null, indexed               |
-| `school_id`         | integer        | not null, indexed               |
+| `artist_id`         | integer        | not null, indexed, foreign key  |
+| `school_id`         | integer        | not null, indexed, foreign key  |
+| `degree_type`       | string         | not null, indexed               |
 | `concentration`     | string         | not null, indexed               |
 | `start_date`        | datetime       | not null                        |
 | `end_date`          | datetime       | not null, indexed               |
-|||
 | `created_at`        | datetime       | not null                        |
 | `updated_at`        | datetime       | not null                        |
-| `author_id`         | integer        | not null                        |
+| `author_id`         | integer        | not null, foreign key           |
+
+
+## Schools Table
+
+| Column Name         | Data Type      | Details                         |
+|---------------------|----------------|---------------------------------|
+| `id`                | integer        | not null, indexed, primary key  |
+| `school_name`       | string         | not null, indexed               |
+| `city`              | string         | not null, indexed               |
+| `country`           | string         | not null, indexed               |
+| `created_at`        | datetime       | not null                        |
+| `updated_at`        | datetime       | not null                        |
+| `author_id`         | integer        | not null, foreign key           |
+
+
 
 
 • index on  `id, unique: true` <br/>
