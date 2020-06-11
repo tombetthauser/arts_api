@@ -35,6 +35,7 @@ A general purpose visual arts API built to act as a free open-ended resource for
 | `updated_at`        | datetime       | not null                        |
 | `author_id`         | integer        | not null, foreign key           |
 
+
 <br/>
 
 ## Degrees Table
@@ -42,19 +43,30 @@ A general purpose visual arts API built to act as a free open-ended resource for
 | Column Name         | Data Type      | Details                         |
 |---------------------|----------------|---------------------------------|
 | `id`                | integer        | not null, indexed, primary key  |
-| `artist_id`         | integer        | not null, indexed, foreign key  |
 | `school_id`         | integer        | not null, indexed, foreign key  |
 | `degree_type`       | string         | not null, indexed               |
 | `concentration`     | string         | not null, indexed               |
+| `created_at`        | datetime       | not null                        |
+| `author_id`         | integer        | not null, foreign key           |
+
+
+<br/>
+
+## Artists-to-Degrees Reference Table
+
+| Column Name         | Data Type      | Details                         |
+|---------------------|----------------|---------------------------------|
+| `id`                | integer        | not null, indexed, primary key  |
+| `artist_id`         | integer        | not null, indexed, foreign key  |
+| `degree_id`         | integer        | not null, indexed, foreign key  |
 | `start_date`        | datetime       | not null                        |
 | `end_date`          | datetime       | not null, indexed               |
 | `created_at`        | datetime       | not null                        |
-| `updated_at`        | datetime       | not null                        |
 | `author_id`         | integer        | not null, foreign key           |
 
 <br/>
 
-## Schools Table
+## Art Schools Table
 
 | Column Name         | Data Type      | Details                         |
 |---------------------|----------------|---------------------------------|
@@ -84,7 +96,7 @@ A general purpose visual arts API built to act as a free open-ended resource for
 
 <br/>
 
-## Artworks to Mediums Joins Table
+## Artworks-to-Mediums Joins Table
 
 | Column Name         | Data Type      | Details                         |
 |---------------------|----------------|---------------------------------|
@@ -92,6 +104,7 @@ A general purpose visual arts API built to act as a free open-ended resource for
 | `artwork_id`        | integer        | not null, indexed, foreign key  |
 | `medium_id`         | integer        | not null, indexed, foreign key  |
 | `created_at`        | datetime       | not null                        |
+| `author_id`         | integer        | not null, foreign key           |
 
 <br/>
 
@@ -126,11 +139,59 @@ A general purpose visual arts API built to act as a free open-ended resource for
 
 <br/>
 
-## Artists / Gallery Representation Joins Table
+## Weblinks Table
+
+| Column Name         | Data Type      | Details                         |
+|---------------------|----------------|---------------------------------|
+| `id`                | integer        | not null, indexed, primary key  |
+| `foreign_id`        | string         | not null, indexed               |
+| `foreign_id_type`   | string         | not null, indexed, artist / gallery etc               |
+| `link_type`         | string         | not null, indexed, social media / personal etc        |
+| `platform_name`     | string         | not null, indexed               |
+| `weblink_url`       | string         | not null, indexed               |
+| `platform_type`     | string         | not null                        |
+| `created_at`        | datetime       | not null                        |
+| `updated_at`        | datetime       | not null                        |
+| `author_id`         | integer        | not null, foreign key           |
+
+<br/>
+
+## Artists-to-Galleries Representation Reference Table
+
+| Column Name         | Data Type      | Details                         |
+|---------------------|----------------|---------------------------------|
+| `id`                | integer        | not null, indexed, primary key  |
+| `artist_id`         | string         | not null, indexed               |
+| `artspace_id`       | string         | not null, indexed               |
+| `start_date`        | datetime       | not null                        |
+| `end_date`          | datetime       |                                 |
+| `created_at`        | datetime       | not null                        |
+| `updated_at`        | datetime       | not null                        |
+| `author_id`         | integer        | not null, foreign key           |
+
+
+<br/>
 
 ## Art Events Table
 
-## Art Events / Artworks Joins Table
+| Column Name         | Data Type      | Details                         |
+|---------------------|----------------|---------------------------------|
+| `id`                | integer        | not null, indexed, primary key  |
+| `event_title`       | string         | not null, indexed               |
+| `artspace_id`       | string         | not null, indexed               |
+| `reception_date`    | datetime       | not null                        |
+| `open_date`         | datetime       | not null                        |
+| `close_date`        | datetime       |                                 |
+| `created_at`        | datetime       | not null                        |
+| `updated_at`        | datetime       | not null                        |
+| `author_id`         | integer        | not null, foreign key           |
+
+
+<br/>
+
+## Events-to-Artworks Joins Table
+
+## Events-to-Artists Joins Table
 
 ***
 
