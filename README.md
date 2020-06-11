@@ -190,42 +190,60 @@ A general purpose visual arts API built to act as a free open-ended resource for
 <br/>
 
 ## Events-to-Artworks Joins Table
+(when specific artwork is known)
 
-## Events-to-Artists Joins Table
+| Column Name         | Data Type      | Details                         |
+|---------------------|----------------|---------------------------------|
+| `id`                | integer        | not null, indexed, primary key  |
+| `event_id`          | string         | not null, indexed               |
+| `artwork_id`        | string         | not null, indexed               |
+| `created_at`        | datetime       | not null                        |
+| `author_id`         | integer        | not null, foreign key           |
 
-***
 
-## `blogs`
+<br/>
 
-| Column Name       | Data Type | Details                         |
-|-------------------|-----------|---------------------------------|
-| `id`              | integer   | not null, indexed, primary key  |
-| `title`           | string    | not null                        |
-| `description`     | string    |                                 |
-| `banner_pic_url`  | string    |                                 |
-| `author_id`       | integer   | not null, indexed, foreign key  |
-| `created_at`      | datetime  | not null                        |
-| `updated_at`      | datetime  | not null                        |
+## Events-to-Artist Joins Table
+(when only artist known, redundant if artwork is known)
 
-• index on  `id, unique: true` <br/>
-• index on  `name, unique: true` <br/>
-• index on  `author_id` <br/>
+| Column Name         | Data Type      | Details                         |
+|---------------------|----------------|---------------------------------|
+| `id`                | integer        | not null, indexed, primary key  |
+| `event_id`          | string         | not null, indexed               |
+| `artist_id`         | string         | not null, indexed               |
+| `created_at`        | datetime       | not null                        |
+| `author_id`         | integer        | not null, foreign key           |
 
-***
 
-## `posts`
+<br/>
 
-| Column Name       | Data Type | Details                         |
-|-------------------|-----------|---------------------------------|
-| `id`              | integer   | not null, indexed, primary key  |
-| `title`           | string    | not null, indexed               |
-| `text`            | string    |                                 |
-| `pic_url`         | string    |                                 |
-| `blog_id`         | integer   | not null, indexed, foreign key  |
-| `cname_path`      | string    | (might be used for DNS reroute?)|
-| `created_at`      | datetime  | not null                        |
-| `updated_at`      | datetime  | not null                        |
 
-• index on  `id, unique: true` <br/>
-• index on  `title` <br/>
-• index on  `author_id` <br/>
+## Prices Table
+(separate from artworks to track multiple prices over time)
+
+| Column Name         | Data Type      | Details                         |
+|---------------------|----------------|---------------------------------|
+| `id`                | integer        | not null, indexed, primary key  |
+| `artwork_id`        | string         | not null, indexed               |
+| `price`             | string         | not null, indexed               |
+| `created_at`        | datetime       | not null                        |
+| `author_id`         | integer        | not null, foreign key           |
+
+<br/>
+
+
+## Sales Table
+
+| Column Name         | Data Type      | Details                         |
+|---------------------|----------------|---------------------------------|
+| `id`                | integer        | not null, indexed, primary key  |
+| `artwork_id`        | string         | not null, indexed               |
+| `sale_price`        | string         | not null, indexed               |
+| `sale_currency`     | string         | not null, indexed               |
+| `seller_type`       | string         | indexed                         |   
+| `seller_id`         | string         | indexed                         |
+| `seller_name`       | string         | indexed                         |  
+| `sale_date`         | datetime       | not null                        |
+| `created_at`        | datetime       | not null                        |
+| `author_id`         | integer        | not null, foreign key           |
+
