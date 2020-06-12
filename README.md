@@ -288,9 +288,9 @@ A general purpose visual arts API built to act as a free open-ended resource for
 | `id`                | integer        | not null, indexed, primary key  |
 | `user_id`           | integer        | not null, indexed, foreign key  |
 | `user_name`         | string         | not null, indexed               |
+| `account_settings`  | string         | not null, JSON string?          |
 | `created_at`        | datetime       | not null                        |
 | `updated_at`        | datetime       |                                 |
-
 
 
 <br/>
@@ -301,10 +301,24 @@ A general purpose visual arts API built to act as a free open-ended resource for
 | Column Name         | Data Type      | Details                         |
 |---------------------|----------------|---------------------------------|
 | `id`                | integer        | not null, indexed, primary key  |
-| `liker_user_id`     | integer        | not null, indexed, foreign key  |
 | `liked_user_id`     | string         | not null, indexed, foreign key  |
+| `author_id`         | integer        | not null, indexed, foreign key  |
 | `created_at`        | datetime       | not null                        |
-| `updated_at`        | datetime       |                                 |
+
+
+<br/>
+
+## Studio_Swipe Messages Table
+(separate from artists etc to accomodate other apps and gallerists etc)
+
+| Column Name         | Data Type      | Details                         |
+|---------------------|----------------|---------------------------------|
+| `id`                | integer        | not null, indexed, primary key  |
+| `match_id`          | string         | not null, indexed, foreign key  |
+| `author_id`         | integer        | not null, indexed, foreign key  |
+| `message_text`      | string         | not null                        |
+| `created_at`        | datetime       | not null                        |
+
 
 
 
