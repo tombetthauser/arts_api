@@ -17,6 +17,23 @@ A general purpose visual arts API built to act as a free open-ended resource for
 
 # Core Schema / Database Tables
 
+
+<br/>
+
+## Users Table
+(separate from artists etc to accomodate other apps and gallerists etc)
+
+| Column Name         | Data Type      | Details                         |
+|---------------------|----------------|---------------------------------|
+| `id`                | integer        | not null, indexed, primary key  |
+| `first_name`        | string         | not null, indexed               |
+| `last_name`         | string         | not null, indexed               |
+| `email`             | string         | not null, indexed               |
+| `password_digest`   | string         | not null                        |
+| `created_at`        | datetime       | not null                        |
+| `updated_at`        | datetime       |                                 |
+
+
 <br/>
 
 ## Artists Table
@@ -24,6 +41,7 @@ A general purpose visual arts API built to act as a free open-ended resource for
 | Column Name         | Data Type      | Details                         |
 |---------------------|----------------|---------------------------------|
 | `id`                | integer        | not null, indexed, primary key  |
+| `user_id`           | integer        | indexed, foreign key            |
 | `first_name`        | string         | not null, indexed               |
 | `middle_name`       | string         |                                 |
 | `last_name`         | string         | not null, indexed               |
@@ -32,7 +50,7 @@ A general purpose visual arts API built to act as a free open-ended resource for
 | `birth_city`        | string         | not null, indexed               |
 | `death_city`        | string         |                                 |
 | `created_at`        | datetime       | not null                        |
-| `updated_at`        | datetime       | not null                        |
+| `updated_at`        | datetime       |                                 |
 | `author_id`         | integer        | not null, foreign key           |
 
 
@@ -64,6 +82,7 @@ A general purpose visual arts API built to act as a free open-ended resource for
 | `created_at`        | datetime       | not null                        |
 | `author_id`         | integer        | not null, foreign key           |
 
+
 <br/>
 
 ## Art Schools Table
@@ -75,8 +94,9 @@ A general purpose visual arts API built to act as a free open-ended resource for
 | `city`              | string         | not null, indexed               |
 | `country`           | string         | not null, indexed               |
 | `created_at`        | datetime       | not null                        |
-| `updated_at`        | datetime       | not null                        |
+| `updated_at`        | datetime       |                                 |
 | `author_id`         | integer        | not null, foreign key           |
+
 
 <br/>
 
@@ -91,8 +111,9 @@ A general purpose visual arts API built to act as a free open-ended resource for
 | `depth_mm`          | datetime       | not null                        |
 | `length_sec`        | datetime       | not null                        |
 | `created_at`        | datetime       | not null                        |
-| `updated_at`        | datetime       | not null                        |
+| `updated_at`        | datetime       |                                 |
 | `author_id`         | integer        | not null, foreign key           |
+
 
 <br/>
 
@@ -106,6 +127,7 @@ A general purpose visual arts API built to act as a free open-ended resource for
 | `created_at`        | datetime       | not null                        |
 | `author_id`         | integer        | not null, foreign key           |
 
+
 <br/>
 
 ## Mediums Table
@@ -117,6 +139,7 @@ A general purpose visual arts API built to act as a free open-ended resource for
 | `medium_type`       | string         | not null, indexed, (ie: 2D)     |
 | `created_at`        | datetime       | not null                        |
 | `author_id`         | integer        | not null, foreign key           |
+
 
 <br/>
 
@@ -134,12 +157,14 @@ A general purpose visual arts API built to act as a free open-ended resource for
 | `founding_date`     | datetime       | not null                        |
 | `closing_date`      | datetime       |                                 |
 | `created_at`        | datetime       | not null                        |
-| `updated_at`        | datetime       | not null                        |
+| `updated_at`        | datetime       |                                 |
 | `author_id`         | integer        | not null, foreign key           |
+
 
 <br/>
 
 ## Weblinks Table
+(necessary to distinguish between primary websites and social media sites etc)
 
 | Column Name         | Data Type      | Details                         |
 |---------------------|----------------|---------------------------------|
@@ -151,8 +176,9 @@ A general purpose visual arts API built to act as a free open-ended resource for
 | `weblink_url`       | string         | not null, indexed               |
 | `platform_type`     | string         | not null                        |
 | `created_at`        | datetime       | not null                        |
-| `updated_at`        | datetime       | not null                        |
+| `updated_at`        | datetime       |                                 |
 | `author_id`         | integer        | not null, foreign key           |
+
 
 <br/>
 
@@ -166,7 +192,7 @@ A general purpose visual arts API built to act as a free open-ended resource for
 | `start_date`        | datetime       | not null                        |
 | `end_date`          | datetime       |                                 |
 | `created_at`        | datetime       | not null                        |
-| `updated_at`        | datetime       | not null                        |
+| `updated_at`        | datetime       |                                 |
 | `author_id`         | integer        | not null, foreign key           |
 
 
@@ -183,7 +209,7 @@ A general purpose visual arts API built to act as a free open-ended resource for
 | `open_date`         | datetime       | not null                        |
 | `close_date`        | datetime       |                                 |
 | `created_at`        | datetime       | not null                        |
-| `updated_at`        | datetime       | not null                        |
+| `updated_at`        | datetime       |                                 |
 | `author_id`         | integer        | not null, foreign key           |
 
 
@@ -217,7 +243,6 @@ A general purpose visual arts API built to act as a free open-ended resource for
 
 <br/>
 
-
 ## Prices Table
 (separate from artworks to track multiple prices over time)
 
@@ -229,8 +254,8 @@ A general purpose visual arts API built to act as a free open-ended resource for
 | `created_at`        | datetime       | not null                        |
 | `author_id`         | integer        | not null, foreign key           |
 
-<br/>
 
+<br/>
 
 ## Sales Table
 
@@ -246,4 +271,42 @@ A general purpose visual arts API built to act as a free open-ended resource for
 | `sale_date`         | datetime       | not null                        |
 | `created_at`        | datetime       | not null                        |
 | `author_id`         | integer        | not null, foreign key           |
+
+
+<br/><br/>
+
+# Studio Swipe App Schema / Database Tables
+
+
+<br/>
+
+## Studio_Swipe Users Table
+(separate from artists etc to accomodate other apps and gallerists etc)
+
+| Column Name         | Data Type      | Details                         |
+|---------------------|----------------|---------------------------------|
+| `id`                | integer        | not null, indexed, primary key  |
+| `user_id`           | integer        | not null, indexed, foreign key  |
+| `user_name`         | string         | not null, indexed               |
+| `created_at`        | datetime       | not null                        |
+| `updated_at`        | datetime       |                                 |
+
+
+
+<br/>
+
+## Studio_Swipe Matches Table
+(separate from artists etc to accomodate other apps and gallerists etc)
+
+| Column Name         | Data Type      | Details                         |
+|---------------------|----------------|---------------------------------|
+| `id`                | integer        | not null, indexed, primary key  |
+| `liker_user_id`     | integer        | not null, indexed, foreign key  |
+| `liked_user_id`     | string         | not null, indexed, foreign key  |
+| `created_at`        | datetime       | not null                        |
+| `updated_at`        | datetime       |                                 |
+
+
+
+
 
