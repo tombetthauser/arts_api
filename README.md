@@ -276,11 +276,12 @@ A general purpose visual arts API built to act as a free open-ended resource for
 <br/><br/>
 
 # Studio Swipe App Schema / Database Tables
+These tables specifically pertain to a stand alone datin-app style platform to help artists match with one another based off of pictures of their work and basic background info with the goal of live chatting in the app and having an in person or digital studio visit. This app extends the general users login and artists table, and also would build off the artworks table from the core schema, holding references to images in the user's settings string in the settings table below. This structure is not set in stone and may change based on feedback.
 
 
 <br/>
 
-## Studio_Swipe Users Table
+## Studio_Swipe User Settings Table
 (separate from artists etc to accomodate other apps and gallerists etc)
 
 | Column Name         | Data Type      | Details                         |
@@ -288,7 +289,7 @@ A general purpose visual arts API built to act as a free open-ended resource for
 | `id`                | integer        | not null, indexed, primary key  |
 | `user_id`           | integer        | not null, indexed, foreign key  |
 | `user_name`         | string         | not null, indexed               |
-| `account_settings`  | string         | not null, JSON string?          |
+| `settings_string`   | string         | not null, JSON string?          |
 | `created_at`        | datetime       | not null                        |
 | `updated_at`        | datetime       |                                 |
 
