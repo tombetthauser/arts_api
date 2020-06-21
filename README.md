@@ -17,6 +17,7 @@ A general purpose visual arts API built to act as a free open-ended resource for
 
 # Core Schema / Database Tables
 
+<img src="https://raw.githubusercontent.com/tombetthauser/arts_api/master/Screen%20Shot%202020-06-20%20at%2011.29.10%20PM.png" />
 
 <br/>
 
