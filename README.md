@@ -143,7 +143,7 @@ A general purpose visual arts API built to act as a free open-ended resource for
 
 <br/>
 
-## Exhibition Spaces Table
+## Art Spaces Table
 
 | Column Name         | Data Type      | Details                         |
 |---------------------|----------------|---------------------------------|
@@ -182,7 +182,7 @@ A general purpose visual arts API built to act as a free open-ended resource for
 
 <br/>
 
-## Artists-to-Galleries Representation Reference Table
+## Artists-to-Spaces Representation Reference Table
 
 | Column Name         | Data Type      | Details                         |
 |---------------------|----------------|---------------------------------|
@@ -229,7 +229,7 @@ A general purpose visual arts API built to act as a free open-ended resource for
 
 <br/>
 
-## Events-to-Artist Joins Table
+## Events-to-Artists Joins Table
 (when only artist known, redundant if artwork is known)
 
 | Column Name         | Data Type      | Details                         |
